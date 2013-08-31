@@ -15,3 +15,15 @@ class ZProduct {
 		return '</div>';
 	}
 }
+
+function ZBreadcrumb($breadcrumbs)
+{
+	$html = array();
+	foreach($breadcrumbs as $breadcrumb)
+	{
+		if ( $breadcrumb['separator'] ) $html[] = '<h3>&nbsp;/&nbsp;</h3>';
+		$html[] = "<h3><a href=\"{$breadcrumb['href']}\">{$breadcrumb['text']}</a></h3>";
+	}
+	$list = implode('', $html);
+	return "<div class=\"breadcrumb\">{$list}</div>";
+}

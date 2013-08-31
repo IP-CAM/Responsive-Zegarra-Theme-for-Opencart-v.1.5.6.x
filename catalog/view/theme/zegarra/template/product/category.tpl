@@ -1,12 +1,7 @@
 <?php echo $header; ?>
 <?php echo $content_top; ?>
 
-<div class="breadcrumb">
-	<?php foreach ($breadcrumbs as $breadcrumb) { ?>
-	<h3><?php echo $breadcrumb['separator'] ? '/' : ''; ?></h3>
-	<h3><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></h3>
-	<?php } ?>
-</div>
+<?php echo ZBreadcrumb($breadcrumbs); ?>
 
 <article id="content" class="category-content">
 
