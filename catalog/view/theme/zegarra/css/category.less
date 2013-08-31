@@ -1,0 +1,151 @@
+/*	================================
+	Category page styles
+	================================ */
+#container {
+
+	#column-left {
+		margin-bottom: @line-height;
+		overflow: hidden;
+	}
+
+	.category-content {
+		margin-bottom: @line-height * 2;
+	}
+
+	@media only screen and (min-width: 768px) {
+		
+		#column-left, .category-content {
+			float: right;
+		}
+
+		#column-left {
+			margin-right: @line-height;
+			width: 170px;
+		}
+		.category-content {
+			width: 768px - 170px - @line-height*3
+		}	
+	}
+
+	@media only screen and (min-width: 1024px) {
+		
+		.category-content {
+			width: 1024px - 170px - @line-height*3;
+		}
+	}
+}
+
+// Column-left specific
+#column-left ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: block;
+
+	li {
+		margin-bottom: @line-height/3;
+	}
+}
+
+#categories, #filters {
+	margin-bottom: @line-height * 2;
+	
+	> li {
+		&.header {
+			margin-bottom: @line-height;
+			border-bottom: 1px solid white;
+
+			h1, h2, h3, h4, h5, h6 {
+				margin: 0;
+				padding: 0;
+				border-bottom: 1px solid darken(@content-bg-color, 16%);
+			}
+		}
+
+		a {
+			color: @text-color;
+		}
+
+		// Sublists
+		> ul {
+			margin-bottom: @line-height;
+
+			input[type="checkbox"] {
+				margin-right: @line-height/2;
+			}
+		}
+	}
+}
+
+#categories {
+	> li {
+		a {
+			color: @text-color-very-light;
+
+			&.active {
+				color: @text-color-light;
+			}
+		}
+	}
+}
+
+// Article specific
+#product-toolbar {
+	margin-bottom: @line-height;
+
+	> * {
+		float: right;
+		margin-right: @line-height;
+
+		select {
+			display: inline-block;
+		}
+	}
+}
+
+ul#product-view {
+	margin-bottom: @line-height / 2;
+
+	&.button-group {
+		float: right;
+		> li {
+			width: @line-height * 1.5;
+			height: @line-height * 1.5;
+
+			// Inner
+			span.icon {
+				display: block;
+				width: 100%;
+				height: 100%;
+			}
+			&.list span.icon {
+				background: transparent url(../img/icons/IcoMoon/16px/paragraph-justify.png) no-repeat center center;
+			}
+			&.grid span.icon {
+				background: transparent url(../img/icons/IcoMoon/16px/table2.png) no-repeat center center;
+			}
+
+			@media only screen and (min-width: 768px) {
+				width: @line-height;
+				height: @line-height;
+			}
+		}		
+	}
+}
+
+#product-limit, #product-sort {
+	clear: both;
+	float: right;
+}
+
+#product-limit {
+	@media only screen and (min-width: 768px) {
+		clear: none;
+	}
+}
+
+#product-sort {
+	@media only screen and (min-width: 480px) {
+		clear: none;
+	}
+}

@@ -1,0 +1,133 @@
+/*	================================
+	Product list styles
+	================================ */
+.product-listing {
+
+	.product-item {
+
+		margin: 0 auto @line-height*2;
+		width: 75%;
+
+		.image, .name, .price {
+			margin: 0 0 @line-height/2;
+		}
+
+		.image {
+
+			overflow: hidden;
+			a {
+				border: 4px solid @content-bg-color;
+				.border-radius(2px);
+				display: block;
+				img {
+					display: block;
+					margin: 0;
+					max-width: 100%;
+				}
+			}
+		}
+
+		.name {
+			margin-bottom: @line-height / 4;
+			a {
+				color: @text-color;
+			}
+		}
+
+		.description {
+			display: none;
+		}
+
+		.price {
+			color: @color-2;
+			.font-size(1.5);
+			font-weight: 300;
+			.text-shadow(white);
+		}
+
+		.add {
+			margin: 0;
+		}
+
+		@media only screen and (min-width: 480px) {
+			@margin: 5%;
+			margin: 0 0 @margin*1.5 @margin;
+			width: 47.5%;
+
+			float: left;
+
+			&:first-child {
+				margin-left: 0;
+			}
+
+			&.pivot-item-2 + .product-item {
+				margin-left: 0;
+				clear: both;
+			}
+		}
+
+		@media only screen and (min-width: 768px) {
+			@margin: 3.5%;
+			margin: 0 0 @margin*1.5 @margin;
+			width: 31%;
+
+			&.pivot-item-2 + .product-item {
+				margin-left: @margin;
+				clear: none;
+			}
+			&.pivot-item-3 + .product-item {
+				margin-left: 0;
+				clear: both;
+			}
+		}
+
+		@media only screen and (min-width: 1024px) {
+			@margin: 3.33333333%;
+			margin: 0 0 @margin*1.5 @margin;
+			width: 22.5%;
+
+			&.pivot-item-2, &.pivot-item-3 {
+				& + .product-item {
+					margin-left: @margin;
+					clear: none;
+				}
+			}
+			&.pivot-item-4 + .product-item {
+				margin-left: 0;
+				clear: both;
+			}
+		}
+	}
+
+	&.list {
+		.product-item {
+			&,
+			&.pivot-item-2 + .product-item,
+			&.pivot-item-3 + .product-item,
+			&.pivot-item-4 + .product-item {
+				margin: 0 auto @line-height * 2;
+				padding: 0;
+				width: 100%;
+
+				clear: both;
+
+				.image, .meta {
+					float: left;
+				}
+
+				.image {
+					width: 16%;
+					margin-right: 5%;
+				}
+
+				.meta {
+					width: 79%;
+				}
+
+				.description {
+					display: block;
+				}
+			}
+		}
+	}
+}

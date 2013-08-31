@@ -1,0 +1,78 @@
+/*	================================
+	Typographic styles
+	================================ */
+body {
+	font-family: "Open Sans", Arial, sans-serif;
+	.font-size(1.142857143);
+
+	@media only screen and (min-width: 768px) {
+		.font-size(1.0);
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 300;
+	.text-shadow(white);
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: @line-height/2 0 @line-height;
+}
+
+h1 { .font-size(2.5); }
+h2 { .font-size(2.0); }
+h3 { .font-size(1.5); }
+h4 { .font-size(1.0); }
+h5 { .font-size(0.5); }
+h6 { .font-size(0.25); }
+
+a {
+	color: @color-2;
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+	&:active {
+		color: @color-1;
+	}
+	&:focus {
+		outline: 0;
+	}
+}
+
+small {
+	font-size: 85%;
+}
+
+strong {
+	font-weight: bold;
+}
+
+em {
+	font-size: italic;
+}
+
+// Lists styling
+ul {
+	.clear-list;
+}
+
+// Custom classes
+
+.text-center {
+	text-align: center;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.content-block {
+	display: block;
+	margin-bottom: @line-height;
+}

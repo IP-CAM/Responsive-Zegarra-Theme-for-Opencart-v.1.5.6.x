@@ -1,0 +1,60 @@
+/*	================================
+	Main navigation styles
+	================================ */
+nav[role="primary"] {
+
+	margin: 0 0 @line-height;
+	text-align: center;
+
+	ul {
+		.clear-list;
+		width: 100%;
+
+		li {
+			margin: 0;
+			text-align: center;
+
+			.transition(.125s);
+
+			> a {
+				display: block;
+				margin: 0;
+				padding: @line-height/2 @line-height;
+
+				color: @text-color-very-light;
+				font-weight: bold;
+				text-decoration: none;
+
+				.text-shadow(white);
+				.transition(.125s);
+
+				&:hover {
+					color: @text-color;
+				}
+			}
+			&.active > a {
+				color: @color-2;
+			}
+		}
+
+		// Responsive
+		@media only screen and (min-width: 480px) {
+			li {
+				display: inline-block;
+				width: 50%;
+
+				float: left;
+			}
+		}
+
+		@media only screen and (min-width: 768px) {
+			margin-left: auto;
+			margin-right: auto;
+			width: auto;
+
+			li {
+				width: auto;
+			}
+		}
+	}
+}

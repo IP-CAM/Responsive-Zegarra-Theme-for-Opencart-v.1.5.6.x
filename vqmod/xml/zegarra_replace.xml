@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+	<id>Replace Cart items view</id>
+	<version>1.0</version>
+	<vqmver>2.X</vqmver>
+	<author>xxx</author>
+	<file name="system/startup.php">
+		<operation info="Add helper file to startup">
+			<search position="before">
+				<![CDATA[
+				?>
+				]]>
+			</search>
+			<add>
+				<![CDATA[
+				require_once(DIR_SYSTEM . 'helper/zegarra.php');
+				]]>
+			</add>
+		</operation>
+	</file>
+	<file name="catalog/controller/module/cart.php">
+		<operation info="replace text_items">
+			<search position="replace">
+				<![CDATA[
+				$this->data['text_items'] = sprintf($this->language->get('text_items'), $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0), $this->currency->format($total));
+				]]>
+			</search>
+			<add>
+				<![CDATA[
+				$this->data['total'] = $this->cart->countProducts();
+				]]>
+			</add>
+		</operation>
+	</file>
+	<file name="catalog/controller/checkout/cart.php">
+		<operation info="replace total view of items">
+			<search position="replace">
+				<![CDATA[
+				$json['total'] = sprintf($this->language->get('text_items'), $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0), $this->currency->format($total));
+				]]>
+			</search>
+			<add>
+				<![CDATA[
+				$json['total'] = $this->cart->countProducts();
+				]]>
+			</add>
+		</operation>
+	</file>
+</modification>

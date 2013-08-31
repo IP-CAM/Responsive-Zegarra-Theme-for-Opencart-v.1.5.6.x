@@ -1,0 +1,96 @@
+// COLORS
+
+@color-1: #bf2431;
+@color-2: #f24150;
+@color-3: #2a4557;
+@color-4: #3b848c;
+@color-5: #eff2e4;
+
+@text-color: #666666;
+@text-color-light: #888888;
+@text-color-very-light: #aaaaaa;
+@content-bg-color: #fcfcfc;
+@content-bg-highlight: #fefefe;
+
+// FONTS
+@font-size: 14px;
+@line-height: @font-size * 1.5;
+
+// FUNCTIONS
+.font-size(@scale:1.0) {
+	font-size: @font-size * @scale;
+	line-height: @line-height * @scale;
+}
+
+.opacity(@value:1) {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@{value})";
+	filter: alpha(opacity=@value);
+	opacity: @value;
+}
+
+.border-radius(@radius: 4px) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+}
+
+.drop-shadow(@x-offset: 0; @y-offset: 1px; @blur: 2px; @spread: 0; @alpha: 0.1) {
+	-webkit-box-shadow: @x-offset @y-offset @blur @spread rgba(0, 0, 0, @alpha);
+	-moz-box-shadow: @x-offset @y-offset @blur @spread rgba(0, 0, 0, @alpha);
+	box-shadow: @x-offset @y-offset @blur @spread rgba(0, 0, 0, @alpha);
+}
+
+.drop-shadow-colored(@x-offset: 0; @y-offset: 1px; @blur: 2px; @spread: 0; @color: rgba(0, 0, 0, 0.1)) {
+	-webkit-box-shadow: @x-offset @y-offset @blur @spread @color;
+	-moz-box-shadow: @x-offset @y-offset @blur @spread @color;
+	box-shadow: @x-offset @y-offset @blur @spread @color;
+}
+
+.text-shadow(@color) {
+	text-shadow: 0 1px 0 @color;
+}
+
+.transition(@duration:0.2s; @ease:linear) {
+	-webkit-transition: all @duration @ease;
+	-moz-transition: all @duration @ease;
+	-ms-transition: all @duration @ease;
+	-o-transition: all @duration @ease;
+	transition: all @duration @ease;
+}
+
+.linear-gradient(@color-begins; @color-ends) {
+	background-image: -webkit-gradient(linear, 0 100%, 0 0, from(@color-begins), to(@color-ends));
+	background-image: -webkit-linear-gradient(bottom, @color-begins, @color-ends);
+	background-image: -moz-linear-gradient(bottom, @color-begins, @color-ends);
+	background-image: -o-linear-gradient(bottom, @color-begins, @color-ends);
+	background-image: linear-gradient(bottom, @color-begins, @color-ends);
+}
+
+.background-pattern(@name; @repeat: repeat) {
+	background: transparent url("../img/patterns/@{name}") @repeat;
+}
+
+// MIXINS
+.clear-list {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+// CLEARFIX
+
+* html .clearfix {
+	zoom: 1;
+} /* IE6 */
+*:first-child+html .clearfix {
+	zoom: 1;
+} /* IE7 */
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}

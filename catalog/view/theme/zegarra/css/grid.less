@@ -1,0 +1,85 @@
+/*	================================
+	Grid Styles
+	================================ */
+.container {
+	margin: 0 auto;
+	padding: 0;
+	width: 90%;
+	max-width: 960px;
+
+	.row {
+		float: left;
+		clear: both;
+
+		width: 100%;
+
+		.columns {
+			@margin-left: 3%;
+			@column: 5.583333333%;
+
+			float: left;
+			width: 100%;
+			@media only screen and (min-width: 480px) {
+				&:nth-child(even) {
+					margin-left: @margin-left;
+				}
+				&:nth-child(odd) {
+					clear: both;
+				}
+				&:first-child {
+					margin-left: 0;
+				}
+
+				&.one,
+				&.two,
+				&.three,
+				&.four,
+				&.five,
+				&.six,
+				&.seven,
+				&.eight,
+				&.nine,
+				&.ten,
+				&.eleven
+				{
+					width: 47.5%;
+				}
+
+			}
+			@media only screen and (min-width: 768px) {
+				margin-left: @margin-left;
+
+				&:nth-child(even), &:nth-child(odd) {
+					clear: none;
+				}
+
+				&.one { width: @column; }
+				&.two { width: (@column * 2) + @margin-left }
+				&.three { width: (@column * 3) + @margin-left * 2 }
+				&.four { width: (@column * 4) + @margin-left * 3; }
+				&.five { width: (@column * 5) + @margin-left * 4; }
+				&.six { width: (@column * 6) + @margin-left * 5; }
+				&.seven { width: (@column * 7) + @margin-left * 6; }
+				&.eight { width: (@column * 8) + @margin-left * 7; }
+				&.nine { width: (@column * 9) + @margin-left * 8; }
+				&.ten { width: (@column * 10) + @margin-left * 9; }
+				&.eleven { width: (@column * 11) + @margin-left * 10; }
+				&.twelve { width: (@column * 12) + @margin-left * 11; }
+			}
+		}
+	}
+}
+
+#container {
+	margin: 0 auto @line-height * 2;
+	width: 80%;
+
+	@media only screen and (min-width: 768px) {
+		padding: 0 @line-height;
+		width: 768px - @line-height*2;
+	}
+	@media only screen and (min-width: 1024px) {
+		padding: 0 @line-height;
+		width: 1024px - @line-height*2
+	}
+}

@@ -1,0 +1,43 @@
+/*	================================
+	Footer Styles
+	================================ */
+footer {
+	position: relative;
+	margin: 0;
+	padding: @line-height;
+
+	overflow: hidden;
+
+	#ribbon-shadow {
+		position: absolute;
+		width: 97.5%;
+		top: 0;
+		left: 50%;
+
+		z-index: -1;
+		
+		&:before {
+			content: "";
+			display: block;
+			position: relative;
+			width: 100%;
+			height: 32px;
+			top: -32px;
+			left: -50%;
+			margin: 0 auto;
+			.drop-shadow(0, 0, 64px, 0, .25);
+		}
+		clip: rect(0, auto, 9999px, -9999px);
+	}
+
+	&:before {
+		content: "";
+		display: block;
+		position: absolute;
+		width: 100%;
+		height: 11px;
+		top: 0;
+		left: 0;
+		.background-pattern("ribbon.png", repeat-x);
+	}
+}

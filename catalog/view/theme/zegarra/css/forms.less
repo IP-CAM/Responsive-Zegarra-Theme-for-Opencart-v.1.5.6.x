@@ -1,0 +1,187 @@
+/*	================================
+	Forms and Inputs styles
+	================================ */
+* {
+	outline: none;
+}
+
+input, button, select, textarea {
+	display: block;
+	margin-bottom: @line-height/2;
+}
+
+textarea {
+	width: 75%;
+	min-height: 128px;
+	resize: none;
+}
+
+.button, input[type="button"] {
+
+	@border-width: 2px;
+
+	display: inline-block;
+	position: relative;
+
+	margin: @line-height/2;
+	margin-left: 0;
+
+	padding: @line-height/4 @line-height/2;
+
+	color: white !important;
+	background-color: @color-2;
+	.linear-gradient(@color-2, lighten(@color-2, 8%));
+
+	border: none;
+	border-bottom: @border-width solid @color-1;
+	.border-radius(4px);
+
+	.font-size(1);
+	font-weight: bold;
+	text-decoration: none !important;
+
+	&:hover {
+		background-image: none;
+		background-color: darken(@color-2, 1%);
+	}
+	&:active {
+		bottom: -@border-width;
+		border-bottom: none;
+		margin-bottom: @line-height + @border-width;
+	}
+
+	// Variations
+
+	&.button-secondary {
+		background-color: @color-4;
+		.linear-gradient(@color-4, lighten(@color-4, 8%));
+		border-bottom-color: @color-3;
+
+		&:hover {
+			background-image: none;
+			background-color: darken(@color-4, 1%);
+		}
+	}
+
+	&.button-block {
+		display: block;
+	}
+}
+
+// INPUTS
+.input-base-style {
+	padding: @line-height/8 @line-height/4;
+
+	border: 1px solid darken(white, 16%);
+	outline: none;
+
+	color: @text-color;
+	background-color: white;
+	.font-size(1.0);
+
+	.border-radius(4px);
+	.transition(.125s);
+
+	-webkit-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, .125);
+	-moz-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, .125);
+	box-shadow: inset 1px 1px 2px rgba(0, 0, 0, .125);
+}
+.active-shadow {
+	@colored-shadow: lighten(rgba(red(@color-4), green(@color-4), blue(@color-4), 0.5), 32%);
+	-webkit-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, .125), 0 0 8px @colored-shadow;
+	-moz-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, .125), 0 0 8px @colored-shadow;
+	box-shadow: inset 1px 1px 2px rgba(0, 0, 0, .125), 0 0 8px @colored-shadow;
+}
+input[type="text"], input[type="password"], textarea{
+	.input-base-style;
+	&:focus {
+		.active-shadow;
+	}
+}
+select {
+	.input-base-style;
+	&:active {
+		.active-shadow;
+	}
+}
+
+input[type="text"].search {
+	display: inline;
+	padding: @line-height/8 @line-height/2 @line-height/8 (@line-height + @line-height/2);
+	border-radius: @line-height;
+
+	background: white url(../img/icons/IcoMoon/16px/search.png) no-repeat @line-height/2 center;
+
+	&::-webkit-input-placeholder {
+		font-style: italic;
+	}
+	&::-moz-placeholder {
+		font-style: italic;
+	}
+	&:-moz-placeholder {
+		font-style: italic;
+	}
+	&:-ms-input-placeholder {
+		font-style: italic;
+	}
+}
+
+// Button group UI
+
+ul.button-group {
+	@border-radius: 4px;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	border: 1px solid darken(@content-bg-color, 16%);
+	.border-radius(@border-radius);
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+	cursor: default;
+
+	li {
+		display: block;
+		padding: @line-height/4 @line-height/2;
+
+		float: left;
+
+		border-right: 1px solid darken(@content-bg-color, 8%);
+		border-left: 1px solid white;
+
+		background-color: @color-5;
+		.linear-gradient(@color-5, white);
+
+		&:first-child {
+			border-left: none;
+
+			border-top-left-radius: @border-radius;
+			border-bottom-left-radius: @border-radius;
+		}
+		&:last-child {
+			border-right: none;
+
+			border-top-right-radius: @border-radius;
+			border-bottom-right-radius: @border-radius;
+		}
+		&:hover {
+			background-image: none;
+			background-color: @content-bg-color;
+		}
+		&:active {
+			background-color: darken(@content-bg-color, 4%);
+		}
+		&.active {
+			background-image: none;
+			background-color: darken(@content-bg-color, 4%);
+			-webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, .125);
+			-moz-box-shadow: inset 0 0 4px rgba(0, 0, 0, .125);
+			box-shadow: inset 0 0 4px rgba(0, 0, 0, .125);
+		}
+	}
+}

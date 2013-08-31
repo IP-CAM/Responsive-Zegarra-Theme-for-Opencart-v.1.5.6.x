@@ -1,0 +1,92 @@
+#product {
+	> section {
+		margin-bottom: @line-height * 4;
+
+		.header {
+			position: relative;
+			display: block;
+
+			color: lighten(@text-color, 4%);
+
+			&:after {
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 0;
+				bottom: 0;
+				left: 0;
+
+				border-top: 1px solid darken(@content-bg-color, 16%);
+				border-bottom: 1px solid white;
+			}
+		}
+	}
+}
+
+// Product specific
+
+// Product sections
+.product {
+	@meta-width: 59.5%;
+	@preview-width: 35.5%;
+
+	@media only screen and (min-width: 768px) {
+		.preview {
+			float: right;
+			margin-right: 5%;
+			width: @preview-width;
+		}
+		.meta {
+			float: right;
+			width: @meta-width;
+		}
+	}
+}
+
+.product .preview {
+	img {
+		max-width: 100%;
+	}
+
+	.title {
+		display: block;
+	}
+
+	.main {
+		width: 73.75%;
+		float: left;
+	}
+
+	.thumbs {
+		margin-left: 2.5%;
+		width: 23.75%;
+		float: left;
+
+		.thumb {
+			margin: 0 0 @line-height/2;
+		}
+	}
+
+	@media only screen and (min-width: 768px) {
+		.title {
+			display: none;
+		}
+	}
+}
+
+.product .meta {
+	label[for="quantity"], label[for="size"] {
+		.font-size(1.5);
+		margin-right: @line-height/2;
+	}
+	input[name="quantity"] {
+		text-align: center;
+		.font-size(1.5);
+	}
+
+	.price {
+		color: @color-2;
+		.font-size(1.5);
+		.text-shadow(white);
+	}
+}

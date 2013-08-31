@@ -1,0 +1,30 @@
+/*	================================
+	Search field styles
+	================================ */
+/*
+	All responsive features of this theme follows "mobile-first approach", for purpuse of keeping the code clean
+	#search won't
+*/
+
+#search {
+	text-align: center;
+
+	@media only screen and (max-width: 479px) {
+		input {
+			width: 100%;
+			border-left: none;
+			border-right: none;
+
+			.border-radius(0);
+
+			font-weight: 300;
+			.font-size(1.50);
+		}
+	}
+}
+
+.breadcrumb {
+	h1, h2, h3, h4, h5, h6 {
+		display: inline-block;
+	}
+}
